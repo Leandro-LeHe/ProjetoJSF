@@ -8,6 +8,8 @@
     <h:form>
         <h:outputLabel value="Digite seu nome:" for="nome"/>
         <h:inputText id="nome" value="#{usuarioBean.nome}" />
+        <h:outputLabel value="Digite seu Email:" for="email"/>
+        <h:inputText id="email" value="#{usuarioBean.email}" />
         <h:commandButton value="Enviar" action="#{usuarioBean.dizerOla}" />
     </h:form>
 
