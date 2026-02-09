@@ -3,16 +3,80 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
     <title>JSF com Payara 6</title>
+    <style>
+        body {
+            font-family: Arial,Helvetica, sans-serif;
+            background-color: #f4f6f8;
+        }
+
+        .comtainer {
+            width: 350px;
+            margin: 80px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label{
+            display: block;
+            margin-top:15px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"]{
+            width: 100%;
+            padding: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+
+        }
+        input[type="submit"] {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #1976d2;
+            border: none;
+            color: white;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #125aa0;
+        }
+
+        .mensagem {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            color: #0d47a1;
+        }
+    </style>
 </h:head>
 <h:body>
-    <h:form>
-        <h:outputLabel value="Digite seu nome:" for="nome"/>
-        <h:inputText id="nome" value="#{usuarioBean.nome}" />
-        <h:outputLabel value="Digite seu Email:" for="email"/>
-        <h:inputText id="email" value="#{usuarioBean.email}" />
-        <h:commandButton value="Enviar" action="#{usuarioBean.dizerOla}" />
-    </h:form>
+    <div class="container">
+        <h2>Cadastro</h2>
+        <h:form>
+            <h:outputLabel value="Digite seu nome:" for="nome"/>
+            <h:inputText id="nome" value="#{usuarioBean.nome}" />
 
-    <h:outputText value="#{usuarioBean.mensagem}" rendered="#{not empty usuarioBean.mensagem}" />
+            <h:outputLabel value="Digite seu Email:" for="email"/>
+            <h:inputText id="email" value="#{usuarioBean.email}" />
+
+            <h:commandButton value="enviar" action="#{usuarioBean.dizerOla()}" />
+        </h:form>
+
+        <h:outputText styleClass="mensagem"
+                      value="#{usuarioBean.mensagem}"
+                      rendered="#{not empty usuarioBean.mensagem}" />
+    </div>
 </h:body>
 </html>
